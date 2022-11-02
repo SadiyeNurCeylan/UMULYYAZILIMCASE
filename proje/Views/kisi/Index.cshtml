@@ -1,0 +1,58 @@
+﻿@model proje.Models.kisimodel.KisiIndexViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kişi-Teklif Listesi</h2>
+
+@Html.ActionLink("Yeni Kişi Ekle", "Ekle", null, new { @class = "btn btn-primary" })
+
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>E-Mail</th>
+        @*<th>Mod</th>
+            <th>Hareket Şekli</th>
+            <th>Teslimat Şekli</th>
+            <th>Paket Tipi</th>
+            <th>Birim</th>
+            <th>Ünite</th>
+            <th>Para Birimi</th>*@
+        <th>Şehir</th>
+        <th>Ülke</th>
+        <th>Mail Gönder</th>
+
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var kisi in Model.kisiler)
+    {
+        <tr>
+            <td>@kisi.ad</td>
+            <td>@kisi.soyad</td>
+            <td>@kisi.email</td>
+            <td>@kisi.Sehir.Sehiradi</td>
+            <td>@kisi.Sehir.Ulke</td>
+
+            <td>@Html.ActionLink("Mail Gönder","MailGonder", new {id= kisi.id})</td>
+
+            <td>
+                @*<a href="/kisi/Guncelle/@kisi.id">Güncelle</a> *@
+
+                @Html.ActionLink("Güncelle", "Guncelle", new { id = kisi.id }) |
+                @Html.ActionLink("Detay", "Detay", new { id = kisi.id }) |
+                @Html.ActionLink("Sil", "Sil", new { id = kisi.id }, new { onclick = "return confirm('Kaydı Silmek İstediğinizden Emin Misiniz ?');" })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

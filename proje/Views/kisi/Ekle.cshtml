@@ -1,0 +1,174 @@
+﻿@model proje.Models.kisimodel.KisiEkleViewModel
+
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ekle</h2>
+
+<form class="form-horizontal" method="post" action="/kisi/Ekle/">
+
+    <div class="form-group">
+        @*<label>Ad</label>
+        <input type="text" class="form-control" name="ad" />*@
+
+        @*@Html.Label("Ad")
+        @Html.TextBox("ad", null, new { @class = "form-control" })*@
+
+        @Html.LabelFor(x => x.kisi.ad)
+            @Html.TextBoxFor(x => x.kisi.ad, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @*<label>Soyad</label>
+        <input type="text" class="form-control" name="soyad" />*@
+
+        @*@Html.Label("Soyad")
+        @Html.TextBox("soyad", null, new { @class = "form-control" })*@
+
+        @Html.LabelFor(x => x.kisi.soyad)
+            @Html.TextBoxFor(x => x.kisi.soyad, null, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @*<label>E-Mail</label>
+        <input type="email" class="form-control" name="email" />*@
+
+        @*@Html.Label("Email")
+        @Html.TextBox("email", null, new { @class = "form-control" })*@
+
+        @Html.LabelFor(x => x.kisi.email)
+        @Html.TextBoxFor(x => x.kisi.email, null, new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Mod</label>
+        <select class="form-control" name="mod">
+            <option>Seçiniz</option>
+            <option value="1">LCL</option>
+            <option value="2">FCL</option>
+            <option value="3">AIR</option>
+        </select>*@
+
+        @Html.LabelFor(x => x.kisi.modid)
+        @Html.DropDownListFor(x => x.kisi.modid, new SelectList(Model.modlar,"id","mod"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Hareket Şekli</label>
+            <select class="form-control" name="hareketid">
+                <option>Seçiniz</option>
+                <option value="1">Kapıdan Kapıya </option>
+                <option value="2">Limandan Kapıya</option>
+                <option value="3">Kapıdan Limana</option>
+                <option value="4">Limandan Limana</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.hareketid)
+        @Html.DropDownListFor(x => x.kisi.hareketid, new SelectList(Model.hareketler, "id", "hareket"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Teslimat Şekli</label>
+            <select class="form-control" name="teslimatid">
+                <option>Seçiniz</option>
+                <option value="1">Görevi Ödenmiş Olarak Teslim Edildi</option>
+                <option value="2">Yerinde Teslim Edildi</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.teslimatid)
+        @Html.DropDownListFor(x => x.kisi.teslimatid, new SelectList(Model.teslimatlar, "id", "teslimat"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Paket Tipi</label>
+            <select class="form-control" name="paketid">
+                <option>Seçiniz</option>
+                <option value="1">Paletler</option>
+                <option value="2">Kutular</option>
+                <option value="3">Kartonlar</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.paketid)
+        @Html.DropDownListFor(x => x.kisi.paketid, new SelectList(Model.paketler, "id", "paket"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Birim</label>
+            <select class="form-control" name="birimid">
+                <option>Seçiniz</option>
+                <option value="1">CM</option>
+                <option value="2">IN</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.birimid)
+        @Html.DropDownListFor(x => x.kisi.birimid, new SelectList(Model.birimler, "id", "birim"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Ünite</label>
+            <select class="form-control" name="uniteid">
+                <option>Seçiniz</option>
+                <option value="1">KG</option>
+                <option value="2">LB</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.uniteid)
+        @Html.DropDownListFor(x => x.kisi.uniteid, new SelectList(Model.uniteler, "id", "unite"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Para Birimi</label>
+            <select class="form-control" name="paraid">
+                <option>Seçiniz</option>
+                <option value="1">USD - ABD Doları</option>
+                <option value="2">CNY - Çin Yuanı</option>
+                <option value="3">TL - Türk Lirası</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.paraid)
+        @Html.DropDownListFor(x => x.kisi.paraid, new SelectList(Model.paralar, "id", "para"), new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        @*<label>Şehir</label>
+            <select class="form-control" name="sehirid">
+                <option>Seçiniz</option>
+                <option value="1">New York</option>
+                <option value="2">Los Angeles</option>
+                <option value="3">Miami</option>
+                <option value="4">Minnesota</option>
+                <option value="5">Pekin</option>
+                <option value="6">Şanghay</option>
+                <option value="7">İstanbul</option>
+                <option value="8">İzmir</option>
+            </select>*@
+
+        @Html.LabelFor(x => x.kisi.sehirid)
+        @Html.DropDownListFor(x => x.kisi.sehirid, new SelectList(Model.sehirler, "id", "Sehiradi"), new { @class = "form-control" })
+
+    </div>
+
+
+
+
+    <input type="submit" class="btn btn-primary" value="Kaydet" />
+
+</form>

@@ -1,0 +1,43 @@
+﻿@model proje.Models.kisimodel.KisiDetayViewModel
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.kisi.ad @Model.kisi.soyad Bilgileri</h2>
+
+<hr />
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(x => x.kisi.Mod)</dt>
+    <dd>@Model.kisi.Mod.Mod</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Hareket)</dt>
+    <dd>@Model.kisi.Hareket.Hareket</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Teslimat)</dt>
+    <dd>@Model.kisi.Teslimat.Teslimat</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Paket)</dt>
+    <dd>@Model.kisi.Paket.Paket</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Birim)</dt>
+    <dd>@Model.kisi.Birim.Birim</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Unite)</dt>
+    <dd>@Model.kisi.Unite.Unite</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Para)</dt>
+    <dd>@Model.kisi.Para.Para</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Sehir)</dt>
+    <dd>@Model.kisi.Sehir.Sehiradi</dd>
+
+    <dt>@Html.DisplayNameFor(x => x.kisi.Sehir)</dt>
+    <dd>@Model.kisi.Sehir.Ulke</dd>
+
+</dl>
+
+<p>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

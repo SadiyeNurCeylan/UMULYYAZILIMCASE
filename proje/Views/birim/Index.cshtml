@@ -1,0 +1,34 @@
+﻿@model IEnumerable<proje.Models.Entities.birim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Birim Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Birim Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Birim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birim)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,27 @@
+﻿@model proje.Models.Entities.unite
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detay</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Unite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unite)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Umuly Case", "Index", "kisi", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Kişiler", "Index", "kisi")</li>
+                    <li>@Html.ActionLink("Modlar", "Index", "mod")</li>
+                    <li>@Html.ActionLink("Hareket Şekli", "Index", "hareket")</li>
+                    <li>@Html.ActionLink("Teslimat Şekli", "Index", "teslimat")</li>
+                    <li>@Html.ActionLink("Paket Tipi", "Index", "paket")</li>
+                    <li>@Html.ActionLink("Birimler ", "Index", "birim")</li>
+                    <li>@Html.ActionLink("Üniteler", "Index", "unite")</li>
+                    <li>@Html.ActionLink("Para Birimler", "Index", "para")</li>
+                    <li>@Html.ActionLink("Şehirler", "Index", "sehir")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        @if (TempData["basarilimesaj"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["basarilimesaj"]
+            </div>
+        }
+
+        @if (TempData["hatalimesaj"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["hatalimesaj"]
+            </div>
+        }
+
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

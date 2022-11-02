@@ -1,0 +1,40 @@
+﻿@model IEnumerable<proje.Models.Entities.sehir>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Şehir Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Şehir", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sehiradi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ulke)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sehiradi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ulke)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
